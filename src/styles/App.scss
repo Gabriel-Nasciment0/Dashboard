@@ -1,0 +1,28 @@
+@import "./variables.scss";
+@import "./Board.scss";
+@import "./Column.scss";
+@import "./Task.scss";
+@import "./TaskForm.scss";
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: $bg;
+    font-family: Arial, Helvetica, sans-serif;
+    color: $text;
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+}

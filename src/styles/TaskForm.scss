@@ -1,0 +1,39 @@
+.task-form {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+
+    input,
+    select {
+        padding: 8px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+    }
+
+    button {
+        background: $primary;
+        color: white;
+        border: none;
+        padding: 8px 14px;
+        border-radius: 5px;
+        cursor: pointer;
+
+        &:hover {
+            background: darken($primary, 10%);
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .task-form {
+        flex-direction: column;
+        padding: 15px;
+
+        input,
+        select,
+        button {
+            width: 100%;
+        }
+    }
+}

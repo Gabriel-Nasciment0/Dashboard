@@ -1,0 +1,14 @@
+.board {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+@media (max-width: 768px) {
+    .board {
+        flex-direction: column;
+        padding: 10px;
+    }
+}
