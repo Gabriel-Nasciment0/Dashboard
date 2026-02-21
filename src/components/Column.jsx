@@ -5,10 +5,16 @@ export default function Column({
     tasks,
     onChangeStatus,
     onRemove,
+    onDragStart,
+    draggedTaskId,
 }) {
     const filteredTasks = tasks.filter((task) => task.status === status)
     return (
-        <div className="column">
+        <div
+            className="column"
+            onDragOver={(e) => e.preventDefault()}
+            onDrop={() => onChangeStatus(draggedTaskId, status)}
+        >
             <h2>{title}</h2>
 
             {filteredTasks.map((task) => (
@@ -17,6 +23,7 @@ export default function Column({
                     task={task}
                     onChangeStatus={onChangeStatus}
                     onRemove={onRemove}
+                    onDragStart={onDragStart}
                 />
             ))}
         </div>

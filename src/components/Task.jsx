@@ -1,4 +1,6 @@
-export default function Task({ task, onChangeStatus, onRemove }) {
+import Card from "./Card.jsx"
+
+export default function Task({ task, onChangeStatus, onRemove, onDragStart }) {
     function handleChange(e) {
         onChangeStatus(task.id, e.target.value)
     }
@@ -8,7 +10,11 @@ export default function Task({ task, onChangeStatus, onRemove }) {
     }
 
     return (
-        <div className={`task ${task.status}`}>
+        <Card
+            status={task.status}
+            draggable
+            onDragStart={() => onDragStart(task.id)}
+        >
             <p>{task.title}</p>
 
             <select
@@ -19,7 +25,8 @@ export default function Task({ task, onChangeStatus, onRemove }) {
                 <option value="doing">Em progresso</option>
                 <option value="done">Concluido</option>
             </select>
+
             <button onClick={handleRemove}>Remove</button>
-        </div>
+        </Card>
     )
 }

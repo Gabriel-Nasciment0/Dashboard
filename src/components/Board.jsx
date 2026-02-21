@@ -22,6 +22,12 @@ export default function Board() {
         localStorage.setItem("trello-clone-tasks", JSON.stringify(tasks))
     }, [tasks])
 
+    const [draggedTaskId, setDraggedTaskId] = useState(null)
+
+    function handleDragStart(id) {
+        setDraggedTaskId(id)
+    }
+
     function addTask(newTask) {
         setTasks((prev) => [...prev, newTask])
     }
@@ -67,6 +73,7 @@ export default function Board() {
                 <div
                     className="columns"
                     style={{ transform: `translateX(-${activeCol * 100}%) ` }}
+                    onDragOver={(e) => e.preventDefault()}
                 >
                     {columns.map((col) => (
                         <Column
@@ -76,6 +83,8 @@ export default function Board() {
                             tasks={tasks}
                             onChangeStatus={changeTaskStatus}
                             onRemove={removeTask}
+                            onDragStart={handleDragStart}
+                            draggedTaskId={draggedTaskId}
                         />
                     ))}
                 </div>

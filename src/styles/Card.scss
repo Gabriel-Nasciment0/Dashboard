@@ -1,0 +1,19 @@
+/* components/Card/Card.scss */
+.card {
+    background: #ccc;
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.card-todo {
+    border-left: 4px solid #3b82f6;
+}
+
+.card-doing {
+    border-left: 4px solid #f59e0b;
+}
+
+.card-done {
+    border-left: 4px solid #22c55e;
+}
